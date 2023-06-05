@@ -26,14 +26,15 @@ unsigned long in_action_start_time = 0;
 
 int done_flag = 0;
 
-// for some reason the function thinks straight away that I have pressed the ok button
-// though this is not the case. Also, removing the ok case in this menu wont allow the 
-// other buttons to funciton. why? what is the cause of it? Maybe I should add 10k resistors?
-// But then why wont the other buttons do the same? Is it because they are on the sides? 
-// This would imply that there is a residue of current flowing through the button. Also, I 
-// should test in the main menu wether or not the held button registers as a button input.
-// The way it should function is to track the current flow and on rise turn read as a press
-// input and on fall as a release input. I need to use the button.loop if i want for it to work
+/*
+ * The AC/DC adaptor that I've as output has 12V and can give 2A 
+ * According to the info the valve opperates at 12V and uses up 350mA
+ * In case, I should add a resistor but what value?
+ * I think I should use a resistor to limit the current to the max it needs thus:
+ * U=RI => 12=R*0.35 => R=12/0.35 => 34.28 Ohms
+ * the closest resistor I have is 47 ohms, meh close enough for testing. 
+ * Later on ill have 20-10-(10//10) = 35 Ohms
+ */
 
 
 /* 30/05/2022
